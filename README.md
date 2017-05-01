@@ -25,6 +25,10 @@ Dictionary based learning technique has given significant result, in contrast to
 
 1. http://biometrics.cse.msu.edu/pubs/fingerprints.html
 
+### Fingerprint daabases used in this study:
+
+1. NIST Special Database 4. [https://www.nist.gov/srd/nist-special-database-4]
+
 ### Contacts:
 
 1. Shankar Lal Agarwal (shankar892011@gmail.com)

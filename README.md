@@ -21,6 +21,10 @@ Dictionary based learning technique has given significant result, in contrast to
 5. How fingerprinting improves criminal invertigations. [http://online.ccj.pdx.edu/news-resources/articles/how-fingerprinting-improves-criminal-investigations.html]
 6. MATLAB Tutorial. [https://www.tutorialspoint.com/matlab/]
 
+### Related Papers: 
+
+1. http://biometrics.cse.msu.edu/pubs/fingerprints.html
+
 ### Contacts:
 
 1. Shankar Lal Agarwal (shankar892011@gmail.com)

@@ -12,14 +12,14 @@ Dictionary based learning technique has given significant result, in contrast to
 
 **Index-terms:** Fingerprint matching, fingerprint enhancement, latent fingerprint, orientation field, Region Wise dictionary.
 
-### Important Links:
+### Important Links & related reads:
 
-1. Encyclopedia [http://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/latent-fingerprint]
-2. Fingerprint Analysis [http://www.forensicsciencesimplified.org/prints/how.html]
-3. Orientation Field [http://www.sciencedirect.com/science/article/pii/S003132030300178X]
-4. Biometric Research Group. [http://biometrics.cse.msu.edu/projects/latent_enhancement.html] 
-5. How fingerprinting improves criminal invertigations. [http://online.ccj.pdx.edu/news-resources/articles/how-fingerprinting-improves-criminal-investigations.html]
-6. MATLAB Tutorial. [https://www.tutorialspoint.com/matlab/]
+1. [Encyclopedia](http://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/latent-fingerprint)
+2. [Fingerprint Analysis](http://www.forensicsciencesimplified.org/prints/how.html)
+3. [Orientation Field](http://www.sciencedirect.com/science/article/pii/S003132030300178X)
+4. [Biometric Research Group.](http://biometrics.cse.msu.edu/projects/latent_enhancement.html)
+5. [How fingerprinting improves criminal invertigations.](http://online.ccj.pdx.edu/news-resources/articles/how-fingerprinting-improves-criminal-investigations.html)
+6. [MATLAB Tutorial.](https://www.tutorialspoint.com/matlab/)
 
 ### Related Papers: 
 
@@ -27,10 +27,17 @@ Dictionary based learning technique has given significant result, in contrast to
 
 ### Fingerprint databases used in this study:
 
-1. NIST Special Database 4. [https://www.nist.gov/srd/nist-special-database-4]
+1. [NIST Special Database 4.](https://www.nist.gov/srd/nist-special-database-4)
+
+### Contribution
+
+- Report issues [How to?](https://help.github.com/articles/creating-an-issue/)
+- Open pull request with improvements [How to?](https://help.github.com/articles/about-pull-requests/)
+- Spread the word.
 
 ### Contacts:
 
 1. Shankar Lal Agarwal (shankar892011@gmail.com)
 2. Anick Saha (anick1343.11@bitmesra.ac.in)
 3. Dr.Indrajit Mukherjee (imukherjee@bitmesra.ac.in)
+

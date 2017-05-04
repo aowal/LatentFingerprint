@@ -1,9 +1,10 @@
 function [result] = dictionaryRead(region)
 %% Returns the list of matrix in the region file
 delim = ";";
-fileName = "../../FingerPrintDatabase/region"+num2str(region);
-fid = fopen(fileName,'r');
-fileText = fileread(fid);
+fileName = "../../Fingerprint Database/region"+num2str(region);
+fileName
+fid = fullfile(fileName);
+fileText = fileread(fileName);
 fclose(fid);
 fileTextList = strsplit(fileText,delim);
 result = [];

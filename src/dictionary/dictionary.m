@@ -1,8 +1,9 @@
 
+addpath('../Utils/')
 for i=2:51
     ftitle=num2str(i);
     regions=6;
-    I = imread(['..//..//Images/' ftitle '.jpg']);
+    I = imread(['../../Fingerprint Database/Images/' ftitle '.jpg']);
     image=I;
     DB='NIST27';
     lambda1 = 6; lambda2 = 2; dict_name = 'dict';
@@ -39,6 +40,7 @@ for i=2:51
             if endRow<=row && endCol<=col
                 matrix = ImageData(startRow:endRow,startCol:endCol);
                 regionList = getRegionList(startRow,startCol,endRow,endCol,regionsArrayRowsStart,regionsArrayRowsEnd,regionsArrayColsStart,regionsArrayColsEnd);
+                regionList
                 for k=1:size(regionList)
                     region = regionList(k);
                     dictionaryCreate(matrix,region);
@@ -50,7 +52,8 @@ end
 
 function [regions] = getRegionList(rowStart,colStart,rowEnd,colEnd,regionsArrayRowsStart,regionsArrayRowsEnd,regionsArrayColsStart,regionsArrayColsEnd)
 %% This function takes the boundary of the patch and the region boundaries and outputs the list of regions it belongs to.
-nRegions = size(regionsArrayRowsStart);
+nRegions = (size(regionsArrayRowsStart));
+nRegions = nRegions(2);
 regions = [];
 k=1;
 for i =1:nRegions
@@ -69,13 +72,13 @@ for i =1:nRegions
     y(4) = colEnd;
     
     belongs = 0;
-    for i=1:4
-        if x(i)>=regionRowStart && x(i)<=regionRowEnd && y(i)>=regionColStart && y(i)<= regionColEnd
+    for j=1:4
+        if x(j)>=regionRowStart && x(j)<=regionRowEnd && y(j)>=regionColStart && y(j)<= regionColEnd
             belongs =1;
             break;
         end
     end
-    
+     
     if belongs == 1
         regions(k) = i;
         k =k+1;

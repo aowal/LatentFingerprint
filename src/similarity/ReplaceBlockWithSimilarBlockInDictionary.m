@@ -22,13 +22,22 @@ while i<=rows
         endCol = startCol+blockSize-1;
         patch = matrix(startRow:endRow,startCol:endCol);
         [res,maxScore,region] = getSimilarForPatch(patch,validRegions,nRegions);
-        result(startRow:endRow,startCol:endCol) = res;
+%         region
+%         if maxScore >=1
+%             result(startRow:endRow,startCol:endCol) = res;
+% 
+%         end
+        maxScore
+        patch
+        res
         validRegions = getNextValidRegions(region,nRegions);
         similarityScores(ceil(startRow/10),ceil(startCol/10))=maxScore;
         j = j+blockSize;
     end
     i = i+ blockSize;
 end
+% result
+% similarityScores
 
 end
 

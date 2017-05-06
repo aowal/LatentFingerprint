@@ -1,6 +1,5 @@
 function [result] = dictionaryRead(region)
 %% Returns the list of matrix in the region file
-% delim = ";";
 fileName = "../../Fingerprint Database/RegionDB/region"+num2str(region);
 matrix = dlmread(fileName);
 rows = (size(matrix));

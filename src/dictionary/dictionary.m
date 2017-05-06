@@ -35,12 +35,11 @@ for i=2:51
         for j=1:col
             startRow = i;
             startCol = j;
-            endRow = i+blockSize;
-            endCol = j+blockSize;
+            endRow = i+blockSize-1;
+            endCol = j+blockSize-1;
             if endRow<=row && endCol<=col
                 matrix = ImageData(startRow:endRow,startCol:endCol);
                 regionList = getRegionList(startRow,startCol,endRow,endCol,regionsArrayRowsStart,regionsArrayRowsEnd,regionsArrayColsStart,regionsArrayColsEnd);
-                regionList
                 for k=1:size(regionList)
                     region = regionList(k);
                     dictionaryCreate(matrix,region);

@@ -1,18 +1,10 @@
 function [result] = dictionaryRead(region)
 %% Returns the list of matrix in the region file
-delim = ";";
-fileName = "../../Fingerprint Database/region"+num2str(region);
-fileName
-fid = fullfile(fileName);
-fileText = fileread(fileName);
-fclose(fid);
-fileTextList = strsplit(fileText,delim);
-result = [];
-for i=1:size(fileTextList)
-    A = fileTextList(i);
-    B = strrep(A,'\n',' ');
-    C = char(strsplit(B));
-    D = reshape(str2int(C), 2, [])';
-    result(i) = D;
-end
+% delim = ";";
+fileName = "../../Fingerprint Database/RegionDB/region"+num2str(region);
+matrix = dlmread(fileName);
+rows = (size(matrix));
+nRows = rows(1)/10;
+N = 10*ones(1,nRows);
+result = mat2cell(matrix,N,10);
 end

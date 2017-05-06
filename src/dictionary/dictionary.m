@@ -21,7 +21,7 @@ for i=2:51
     
     ImageData = reshape(DIR(:,1),[bh bw]);
     
-    
+    ImageData = reshapeImage(ImageData);
     [row, col]=size(ImageData);
     blockSize =10;
     regionRow=row/3;

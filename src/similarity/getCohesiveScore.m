@@ -1,3 +1,3 @@
-function[score] = getCohesiveScore(matrix)
+function[score] = GetCohesiveScore(matrix)
 score =0;
 end

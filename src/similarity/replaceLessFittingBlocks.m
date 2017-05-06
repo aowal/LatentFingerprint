@@ -1,3 +1,3 @@
-function[result] = replaceLessFittingBlocks(matrix)
+function[result] = ReplaceLessFittingBlocks(matrix)
 result = [];
 end

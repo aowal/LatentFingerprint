@@ -1,4 +1,4 @@
-function [] = dictionaryCreate(matrix,region)
+function [] = CreateDictionary(matrix,region)
 %% The function writes a matrix to the region file
 % region
 % delim = ";";

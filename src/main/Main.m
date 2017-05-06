@@ -18,14 +18,13 @@ MASK = true(bh,bw);
 DIR =  NormalizeRidgeDir( round(-DIR*180/pi-90) ) ;
 DIR(A==0)=91;
 
-
 ImageData = reshape(DIR(:,1),[bh bw]);
-
 ImageData = reshapeImage(ImageData);
 Image = ReplaceBlockWithSimilarBlockInDictionary(ImageData);
 prevScore =0;
 newScore = getCohesiveScore(Image);
 
+% Main Run! 
 while abs(newScore-prevScore) >=THRESHOLD
     prevScore = newScore;
     Image = ReplaceLessFittingBlocks(Image);

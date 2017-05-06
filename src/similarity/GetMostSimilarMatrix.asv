@@ -11,12 +11,12 @@
 
 function [sim,result] = GetMostSimilarMatrix(dictMatrix, latentPatch)
 
-    [N,M] = size(dictMatrix);
+    [n,m] = size(dictMatrix);
     currSimScore = 0;
     sim  = 0
     result = [];
     
-    for idx=1:N
+    for idx=1:n
         currRegionMatrix = dictMatrix{idx};
         Count1=size(currRegionMatrix,1); Count2=size(latentPatch,1); n=0;
         T=15;  %Threshold for distance
@@ -38,13 +38,12 @@ function [sim,result] = GetMostSimilarMatrix(dictMatrix, latentPatch)
                 j=j+1;
             end
         end
-        
-        currSimScore=sqrt(n^2/(Count1*Count2));       %Similarity Index
+    currSimScore=sqrt(n^2/(Count1*Count2));       %Similarity Index
     
-        if(sim>currSimScore)
-            sim=sim;
-            result = currRegionMatrix
-        end
- 
+    if(sim>currSimScore)
+        sim=sim;
+        result = currRegionMatrix
+    end
+    
     end
 end

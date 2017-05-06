@@ -2,7 +2,7 @@
 addpath('../Utils/')
 addpath('../similarity/')
 THRESHOLD = 0.3;
-imageTitle = ['../../Fingerprint Database/Images/' ftitle '.jpg'];
+imageTitle = ['../../Images/137.bmp'];
 I = imread(imageTitle);
 image=I;
 DB='NIST27';
@@ -20,16 +20,17 @@ DIR(A==0)=91;
 
 ImageData = reshape(DIR(:,1),[bh bw]);
 ImageData = reshapeImage(ImageData);
-Image = ReplaceBlockWithSimilarBlockInDictionary(ImageData);
-prevScore =0;
-newScore = getCohesiveScore(Image);
+imshow(ImageData)
+% Image = ReplaceBlockWithSimilarBlockInDictionary(ImageData);
+% prevScore =0;
+% newScore = getCohesiveScore(Image);
 
 % Main Run! 
-while abs(newScore-prevScore) >=THRESHOLD
-    prevScore = newScore;
-    Image = ReplaceLessFittingBlocks(Image);
-    newScore = getCohesiveScore(Image);
-end
+% while abs(newScore-prevScore) >=THRESHOLD
+%     prevScore = newScore;
+%     Image = ReplaceLessFittingBlocks(Image);
+%     newScore = getCohesiveScore(Image);
+% end
 
-show(Image);
+% imshow(Image);
 

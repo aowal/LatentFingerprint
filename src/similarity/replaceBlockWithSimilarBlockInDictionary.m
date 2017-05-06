@@ -1,16 +1,17 @@
 function[result,similarityScores] = ReplaceBlockWithSimilarBlockInDictionary(matrix)
 %% Function to Replace the Block With Similar Block
-addpath("../dictionary/")
+addpath('../dictionary/');
 [rows,cols] = size(matrix);
 similarityScores = zeros(rows/10,cols/10);
 blockSize =10;
 nRegions =6;
 validRegions=getNextValidRegions(0,nRegions);
 result = matrix;
-dict = zeros(nRegions);
-for region=1:nRegions
-    dict(region) = ReadDictionary(region);
-end
+% dict = zeros(nRegions);
+% dict = cell(nRegions);
+% for region=1:nRegions
+%     dict(region) = ReadDictionary(region);
+% end
 i =1;
 while i<=rows
     j=1;
@@ -20,10 +21,10 @@ while i<=rows
         endRow = startRow+blockSize-1;
         endCol = startCol+blockSize-1;
         patch = matrix(startRow:endRow,startCol:endCol);
-        [res,maxScore,region] = getSimilarForPatch(patch,validRegions,dict,nRegions);
+        [res,maxScore,region] = getSimilarForPatch(patch,validRegions,nRegions);
         result(startRow:endRow,startCol:endCol) = res;
         validRegions = getNextValidRegions(region,nRegions);
-        similarityScores(startRow/10+1,startCol/10+1)=maxScore;
+        similarityScores(ceil(startRow/10),ceil(startCol/10))=maxScore;
         j = j+blockSize;
     end
     i = i+ blockSize;
@@ -31,15 +32,16 @@ end
 
 end
 
-function [result,score,region] = getSimilarForPatch(patch,validRegions,dict,nRegions)
+function [result,score,region] = getSimilarForPatch(patch,validRegions,nRegions)
 % Patch 10 X 10 matrix. It basically calls the getMostSimilarMatrix 
     score =0;
     result = [];
     region =0;
     for curRegion =1:nRegions
         if validRegions(curRegion) == 1
+            dict = ReadDictionary(curRegion);
             %% Check for this region
-            [sim,res] = GetMostSimilarMatrix(patch,dict(curRegion));
+            [sim,res] = GetMostSimilarMatrix(dict,patch);
             if sim>score
                 score =sim;
                 result = res;

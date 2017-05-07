@@ -38,6 +38,7 @@ end
 DIR =  NormalizeRidgeDir( round(-DIR*180/pi-90) ) ;
 DIR(A==0)=91;
 DIR1 = reshape(DIR(:,1),[bh bw]);
+DIR2 = DIR1;
 Image = reshapeImage(DIR1);
 % Image
 % imshow(Image);
@@ -59,5 +60,14 @@ PED = ones(size(DIR))*9;
 I2 = GaborEnhance(I,DIR,PED);
 Show(2,I2);
 imshow(I2);
+
+% DIR1 = DIR2;
+% DrawDir(1,DIR1,blksize,'r');
+% DIR = ResizeDirImage(DIR1,blksize);
+% DIR = MakeSameSize(DIR,h,w,91);
+% PED = ones(size(DIR))*9;
+% I2 = GaborEnhance(I,DIR,PED);
+% Show(3,I2);
+% figure ,imshow(I2);
 
 

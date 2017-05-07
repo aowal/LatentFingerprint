@@ -23,14 +23,13 @@ while i<=rows
         patch = matrix(startRow:endRow,startCol:endCol);
         [res,maxScore,region] = getSimilarForPatch(patch,validRegions,nRegions);
 %         region
-%         if maxScore >=1
-%             result(startRow:endRow,startCol:endCol) = res;
-% 
+%         if maxScore >=0.8
+         result(startRow:endRow,startCol:endCol) = replaceMatrix(result,startRow,startCol,res);
 %         end
-        maxScore
-        patch
-        res
-        validRegions = getNextValidRegions(region,nRegions);
+%         maxScore
+%         patch
+%         res
+%         validRegions = getNextValidRegions(region,nRegions);
         similarityScores(ceil(startRow/10),ceil(startCol/10))=maxScore;
         j = j+blockSize;
     end
@@ -41,6 +40,19 @@ end
 
 end
 
+%%
+function [res] = replaceMatrix(orig,startRow,startCol,res)
+
+    for i=1:10
+        for j=1:10
+            if orig(i+startRow-1,j+startCol-1) ==91
+                res(i,j)=91;
+            end
+        end
+    end
+end
+%%
+
 function [result,score,region] = getSimilarForPatch(patch,validRegions,nRegions)
 % Patch 10 X 10 matrix. It basically calls the getMostSimilarMatrix 
     score =0;
@@ -50,7 +62,7 @@ function [result,score,region] = getSimilarForPatch(patch,validRegions,nRegions)
         if validRegions(curRegion) == 1
             dict = ReadDictionary(curRegion);
             %% Check for this region
-            [sim,res] = GetMostSimilarMatrix(dict,patch);
+            [sim,res] = getMostSimilarMatrix(dict,patch);
             if sim>score
                 score =sim;
                 result = res;

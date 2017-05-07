@@ -19,8 +19,9 @@ function [sim,result] = GetMostSimilarMatrix(dictMatrix, latentPatch)
     for idx=1:N
         currRegionMatrix = dictMatrix(idx); 
         currRegionMatrix = cell2mat(currRegionMatrix);
-        currSimScore = sum(pdist2(currRegionMatrix,latentPatch,'jaccard'));
-        currSimScore = 1.0000 - currSimScore;
+%         currSimScore = sum(sum(pdist2(currRegionMatrix,latentPatch,'jaccard')))
+%         currSimScore = 1.0000 - currSimScore
+        currSimScore = numel(find(currRegionMatrix==latentPatch))/numel(currRegionMatrix);
         if(sim<currSimScore)
             sim=currSimScore;
             result = currRegionMatrix;

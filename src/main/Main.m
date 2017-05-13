@@ -42,16 +42,20 @@ DIR2 = DIR1;
 Image = reshapeImage(DIR1);
 % Image
 % imshow(Image);
-[Image,simScores] = ReplaceBlockWithSimilarBlockInDictionary(Image);
+
 % prevScore =0;
 % newScore = getCohesiveScore(Image);
 
 % Main Run! 
-% while abs(newScore-prevScore) >=THRESHOLD
-%     prevScore = newScore;
-%     Image = ReplaceLessFittingBlocks(Image);
-%     newScore = getCohesiveScore(Image);
-% end
+prevScore =0;
+newScore =1;
+size(Image)
+while abs(newScore-prevScore) >=THRESHOLD
+    [Image,simScores] = ReplaceBlockWithSimilarBlockInDictionary(Image);
+    prevScore = newScore;
+    Image = ReplaceLessFittingBlocks(Image);
+    newScore = GetCohesiveScore(Image);
+end
 DIR1 = Image;
 DrawDir(1,DIR1,blksize,'r');
 DIR = ResizeDirImage(DIR1,blksize);

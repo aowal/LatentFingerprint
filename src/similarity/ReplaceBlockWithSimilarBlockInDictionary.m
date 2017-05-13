@@ -7,11 +7,6 @@ blockSize =10;
 nRegions =6;
 validRegions=getNextValidRegions(0,nRegions);
 result = matrix;
-% dict = zeros(nRegions);
-% dict = cell(nRegions);
-% for region=1:nRegions
-%     dict(region) = ReadDictionary(region);
-% end
 i =1;
 while i<=rows
     j=1;
@@ -22,21 +17,12 @@ while i<=rows
         endCol = startCol+blockSize-1;
         patch = matrix(startRow:endRow,startCol:endCol);
         [res,maxScore,region] = getSimilarForPatch(patch,validRegions,nRegions);
-%         region
-%         if maxScore >=0.8
-         result(startRow:endRow,startCol:endCol) = replaceMatrix(result,startRow,startCol,res);
-%         end
-%         maxScore
-%         patch
-%         res
-%         validRegions = getNextValidRegions(region,nRegions);
+        result(startRow:endRow,startCol:endCol) = replaceMatrix(result,startRow,startCol,res);
         similarityScores(ceil(startRow/10),ceil(startCol/10))=maxScore;
         j = j+blockSize;
     end
     i = i+ blockSize;
 end
-% result
-% similarityScores
 
 end
 
@@ -58,11 +44,11 @@ function [result,score,region] = getSimilarForPatch(patch,validRegions,nRegions)
     score =0;
     result = [];
     region =0;
+    dict = GetDictionaryOfAllRegions();
     for curRegion =1:nRegions
         if validRegions(curRegion) == 1
-            dict = ReadDictionary(curRegion);
             %% Check for this region
-            [sim,res] = getMostSimilarMatrix(dict,patch);
+            [sim,res] = GetMostSimilarMatrix(dict{curRegion},patch);
             if sim>score
                 score =sim;
                 result = res;

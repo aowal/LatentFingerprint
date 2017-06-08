@@ -53,8 +53,6 @@ for i=3:len
             prevScore = newScore;
             Image = ReplaceLessFittingBlocks(Image);
             newScore = GetCohesiveScore(Image);
-            prevScore
-            newScore
         end
         
         DIR1 = Image;
@@ -65,6 +63,5 @@ for i=3:len
         I2 = GaborEnhance(I,DIR,PED);
         imwrite(I2,outputTitle);
         outputTitle
-        break
     end
 end
